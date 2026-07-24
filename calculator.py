@@ -21,21 +21,38 @@ def Quad():
 #attempting a check on even and odd numbers
 
 def check():
-    x = int(input("Enter the value you want to be checked for evenity or oddity (integers only obviously duh) "))
-    if x % 2 == 0:
-        print(f"{x} is even")
-    else:
-        print(f"{x} is odd")
-def Rand():
-    L=int(input("Let's Play! Make your decision! Type in 1 and see the result! "))
-    if L == 1:
-        X= random.randint(0,1)
-        if X==1:
-            print("You Got Heads!")
+    while True:
+        x = int(input("Enter the value you want to be checked for evenity or oddity (integers only obviously duh) "))
+        if x != int:
+            print("This isn't an integer!")
+        elif x % 2 ==0:
+            print(f"{x} is even!")
+            break
         else:
-            print("You got Tails!")
-    else:
-        print("You did not press 1, Sorry, Restart the calculator because i dont know how to loop back:P")
+            print(f"{x} is odd!")
+            break
+    
+    
+
+def Rand():
+    while True:
+        L=int(input("Let's Play! Make your decision! Type in 1 for Heads and 2 For Tails! ")) # 1 is heads and 2 is tails!!!
+        x=random.randint(1,2)
+        if x ==1 and L ==1:
+            print("The answer is Heads! Correct!")
+        elif x == 1 and L == 2:
+            print("The answer is Heads! Not Tails!")
+        elif x == 2 and L==1:
+            print("The answer is Tails! Not Heads!")
+        elif x ==2 and L==2:
+            print("The answer is Tails! Correct!")
+        else:
+            print("You either didn't choose either or chose another number!")
+        y=int(input(f"Wanna play again, {first}? Type any number except 2 if yes or Type 2 to return to main interface"))
+        if y == 2:
+            break
+    
+
 #Go Here and think about a way to add more mathematical operations and ways to calculate
 
 #Now the interface (Will edit this later)
@@ -47,14 +64,16 @@ while Brkr == 0:
         Brkr = Brkr+1
     else:
         print("The name is blank!")
-first,last= name.split(" ")[0]
-print(f"By ZiadFazbear, Calucator Ver 0.4 (Loop Update), Hello {name}!")
+first= name.split(" ")[0]
+print("================================================================================")
+print(f"By ZiadFazbear, Calucator Ver 0.5 (Fine Tuning Update (1) ), Hello {name}!")
+print("================================================================================")
 print("The currently available abilities to this calcutalor are squaring numbers and extracting the roots of quad equations, checking for evenity or oddity, heads or tails and closing the calculator!")
 breaker = int
 breaker = 0
 while breaker == 0:
-    print("Please choose your needed option  ")
-    choice= int(input("1) Squaring any number, 2) Extracting roots of a Quadratic equation 3) Checking for even or odd nums 4) Heads or Tails 5) Close the Calculator"))
+    print("Please choose your preferred option!   ")
+    choice= int(input("1) Squaring any number, 2) Extracting roots of a Quadratic equation 3) Checking for even or odd nums 4) Heads or Tails 5) Close the Calculator     "))
     if choice == 1:
         Sqring()
     elif choice ==2:
@@ -72,3 +91,4 @@ while breaker == 0:
 
 #To Do: make a function that loops the calculator back to the menu after an operation is over :P (Done on 7/25/2026)
 # Update: Added a loop function, let's go!
+# Update 2: Added better fine tuning to Heads or Tails. 
