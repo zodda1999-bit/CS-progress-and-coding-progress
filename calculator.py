@@ -1,3 +1,4 @@
+import random
 def Sqring():
     x=int(input("Type in the Value of X  "))
     print(f"{x} squared is {square(x)}")
@@ -12,8 +13,10 @@ def Quad():
     c= float(input(("Please input the value of c  ")))
     Root1 = (((0-b)+((b**2)-(4*a*c))**0.5)/(2*a))
     Root2= (((0-b)-((b**2)-(4*a*c))**0.5)/(2*a))
-    if Root1 or Root2 == complex:  #Try to make complex answers considered ("Not Real")
+    D=(b**2)-(4*a*c)
+    if D<0:  #Try to make complex answers considered ("Not Real")
         print("Your Equation has no real roots!")
+        
     print(f"The two values of your quadratic equation are {Root1} and {Root2}")
 #attempting a check on even and odd numbers
 
@@ -24,7 +27,6 @@ def check():
     else:
         print(f"{x} is odd")
 def Rand():
-    import random
     L=int(input("Let's Play! Make your decision! Type in 1 and see the result! "))
     if L == 1:
         X= random.randint(0,1)
@@ -45,7 +47,7 @@ while Brkr == 0:
         Brkr = Brkr+1
     else:
         print("The name is blank!")
-first,last= name.split(" ")
+first,last= name.split(" ")[0]
 print(f"By ZiadFazbear, Calucator Ver 0.4 (Loop Update), Hello {name}!")
 print("The currently available abilities to this calcutalor are squaring numbers and extracting the roots of quad equations, checking for evenity or oddity, heads or tails and closing the calculator!")
 breaker = int
