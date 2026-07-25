@@ -21,16 +21,40 @@ def Quad():
 #attempting a check on even and odd numbers
 
 def check():
-    while True:
-        x = int(input("Enter the value you want to be checked for evenity or oddity (integers only obviously duh) "))
-        if x != int:
+    o=0
+    while o== 0:
+        try:
+            x=int(input("Enter the number you want to check for evenity or oddity (integers only duh)  "))
+        except ValueError:
             print("This isn't an integer!")
-        elif x % 2 ==0:
-            print(f"{x} is even!")
-            break
         else:
-            print(f"{x} is odd!")
-            break
+            if x % 2==0:
+                print(f"{x} is an even number!")
+            
+            
+            else:
+                print(f"{x} is an odd number!")
+        p= 0
+        while p==0:
+            try:
+                z=int(input("Would you like to try again? Press 1 if yes, press 2 to go back to interface menu!"))
+            except ValueError:
+                print("That isn't a choice!")
+            else:
+                if z ==1:
+                    p=p+1
+                elif z ==2:
+                    p=p+1
+                    o=o+1
+                else:
+                    print("That is not a choice!")
+
+    
+    
+        
+        
+           
+            
     
     
 
