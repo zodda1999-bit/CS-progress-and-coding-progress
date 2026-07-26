@@ -1,23 +1,74 @@
 import random
 def Sqring():
-    x=int(input("Type in the Value of X  "))
-    print(f"{x} squared is {square(x)}")
+    o=0
+    while o==0:
+     try:
+      x=float(input("Type in the Value of X  "))
+     except (TypeError,ValueError) :
+        print("This isn't a number!")
+     else:
+      print(f"{x} squared is {square(x)}")
+      p=0
+     while p==0:
+
+      try:
+       y=int(input("Would you like to try another equation? Type 1 if yes or type 2 to return back to the main interface  "))
+      except (TypeError, ValueError) as error:
+         print("This isn't a choice!")
+      else:
+            if y==2:
+             p=1
+             o=1
+            elif y==1:
+                p=1
+            else:
+                print("This isn't a choice!")
+         
+         
+         
+
 def square(n):
     return n**2
 # try to make a functional quadratic forumla calculator with values and make sure it works with no errors
 # gives out full equations and is rounded to the nearest tenth digit
 def Quad():
+  o=0
+  while o==0:
     print("Please input values for a, b and c in the formula aX²+bX+c")
-    a=float(input("Please input the value of a   "))
-    b=float(input(("Please input the value of b  ")))
-    c= float(input(("Please input the value of c  ")))
-    Root1 = (((0-b)+((b**2)-(4*a*c))**0.5)/(2*a))
-    Root2= (((0-b)-((b**2)-(4*a*c))**0.5)/(2*a))
-    D=(b**2)-(4*a*c)
-    if D<0:  #Try to make complex answers considered ("Not Real")
-        print("Your Equation has no real roots!")
+    try:
+        a=float(input("Please input the value of a   "))
+        b=float(input("Please input the value of b   "))
+        c=float(input("Please input the value of c   "))
+        Root1 = float((((0-b)+((b**2)-(4*a*c))**0.5)/(2*a)))
+        Root2 = float((((0-b)-((b**2)-(4*a*c))**0.5)/(2*a)))
+    except (TypeError, ValueError) as error:
+       print("This answer is complex! No Real Roots!")
+    else:
+        print(f"The roots of this equation are {Root1:.1f} and {Root2:.1f} .")
+    p= 0
+    while p ==0:
+        try:
+         y=int(input("Would you like to try another equation? Type 1 if yes or type 2 to return back to the main interface  "))
+        except (ValueError,TypeError) as error:
+            print("This isn't a choice!")
+        else:
+            if y==2:
+             p=1
+             o=1
+            elif y ==1:
+                p=1
+            else:
+                print("This isn't a choice!") #try and except really do save me from human errors and bugs! what a nice feature!
+    
+
         
-    print(f"The two values of your quadratic equation are {Root1} and {Root2}")
+
+
+     
+    
+    
+    
+       
 #attempting a check on even and odd numbers
 
 def check():
@@ -39,7 +90,7 @@ def check():
             try:
                 z=int(input("Would you like to try again? Press 1 if yes, press 2 to go back to interface menu!"))
             except ValueError:
-                print("That isn't a choice!")
+                print("This isn't a choice!")
             else:
                 if z ==1:
                     p=p+1
@@ -47,7 +98,7 @@ def check():
                     p=p+1
                     o=o+1
                 else:
-                    print("That is not a choice!")
+                    print("This isn't a choice!")
 
     
     
@@ -59,22 +110,38 @@ def check():
     
 
 def Rand():
-    while True:
-        L=int(input("Let's Play! Make your decision! Type in 1 for Heads and 2 For Tails! ")) # 1 is heads and 2 is tails!!!
-        x=random.randint(1,2)
-        if x ==1 and L ==1:
-            print("The answer is Heads! Correct!")
-        elif x == 1 and L == 2:
-            print("The answer is Heads! Not Tails!")
-        elif x == 2 and L==1:
-            print("The answer is Tails! Not Heads!")
-        elif x ==2 and L==2:
-            print("The answer is Tails! Correct!")
+    o=0
+    while o==0:
+        try:
+            L=int(input("Let's Play! Make your decision! Type in 1 for Heads and 2 For Tails! ")) # 1 is heads and 2 is tails!!!
+        except ValueError:
+            print("That is not a choice!")
         else:
-            print("You either didn't choose either or chose another number!")
-        y=int(input(f"Wanna play again, {first}? Type any number except 2 if yes or Type 2 to return to main interface"))
-        if y == 2:
-            break
+            x=random.randint(1,2)
+            if x ==1 and L ==1:
+                print("The answer is Heads! Correct!")
+            elif x == 1 and L == 2:
+                print("The answer is Heads! Not Tails!")
+            elif x == 2 and L==1:
+                print("The answer is Tails! Not Heads!")
+            elif x ==2 and L==2:
+                print("The answer is Tails! Correct!")
+            else:
+                print("You either didn't choose either or chose another number!")
+        p=0
+        while p == 0:
+         y=int(input(f"Wanna play again, {first}? Type 1 if yes or Type 2 to return to main interface   "))
+         if y == 2:
+            o=1
+            p=1
+         elif y ==1:
+            p=1
+         else:
+            print("This isn't a choice!")
+
+                
+        
+
     
 
 #Go Here and think about a way to add more mathematical operations and ways to calculate
@@ -110,9 +177,10 @@ while breaker == 0:
         print(f"Goodbye, {first}!")
         breaker = breaker+1
     else:
-        print("That was not a choice!")
+        print("This isn't a choice!")
 
 
 #To Do: make a function that loops the calculator back to the menu after an operation is over :P (Done on 7/25/2026)
 # Update: Added a loop function, let's go!
 # Update 2: Added better fine tuning to Heads or Tails. 
+# Update 3: Fine tuned and error-proofed the rest of the functions! (Done on 7/26/2026) :3
