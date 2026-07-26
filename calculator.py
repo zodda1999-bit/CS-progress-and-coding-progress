@@ -1,4 +1,6 @@
 import random
+
+
 def Sqring():
     o=0
     while o==0:
@@ -13,7 +15,7 @@ def Sqring():
 
       try:
        y=int(input("Would you like to try another equation? Type 1 if yes or type 2 to return back to the main interface  "))
-      except (TypeError, ValueError) as error:
+      except (TypeError, ValueError):
          print("This isn't a choice!")
       else:
             if y==2:
@@ -39,9 +41,9 @@ def Quad():
         a=float(input("Please input the value of a   "))
         b=float(input("Please input the value of b   "))
         c=float(input("Please input the value of c   "))
-        Root1 = float((((0-b)+((b**2)-(4*a*c))**0.5)/(2*a)))
-        Root2 = float((((0-b)-((b**2)-(4*a*c))**0.5)/(2*a)))
-    except (TypeError, ValueError) as error:
+        Root1 = float(((0-b)+((b**2)-(4*a*c))**0.5)/(2*a))
+        Root2 = float(((0-b)-((b**2)-(4*a*c))**0.5)/(2*a))
+    except (TypeError, ValueError):
        print("This answer is complex! No Real Roots!")
     else:
         print(f"The roots of this equation are {Root1:.1f} and {Root2:.1f} .")
@@ -49,7 +51,7 @@ def Quad():
     while p ==0:
         try:
          y=int(input("Would you like to try another equation? Type 1 if yes or type 2 to return back to the main interface  "))
-        except (ValueError,TypeError) as error:
+        except (ValueError,TypeError):
             print("This isn't a choice!")
         else:
             if y==2:
